@@ -1,0 +1,6 @@
+export const FETCH_STATUS = {
+	IDLE: "IDLE",
+	PENDING: "PENDING",
+	SUCCESS: "SUCCESS",
+	FAILURE: "FAILURE"
+};
