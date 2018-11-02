@@ -1,25 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import SearchBar from "../SearchBar/";
+import ResultsContainer from "../ResultsContainer";
 import "./App.css";
 
-class App extends Component {
-	componentDidMount() {
-		const { requestForecast } = this.props;
-
-		setTimeout(() => {
-			requestForecast("LONDON");
-		}, 5000);
-	}
-
-	render() {
-		const { forecastFetchStatus } = this.props;
-		return (
-			<div className="App">
-				<h1>{forecastFetchStatus}</h1>
-			</div>
-		);
-	}
-}
+const App = () => (
+	<div className="App">
+		<SearchBar />
+		<ResultsContainer />
+	</div>
+);
 
 App.propTypes = {
 	forecastFetchStatus: PropTypes.string.isRequired

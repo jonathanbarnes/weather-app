@@ -3,7 +3,7 @@ import { FETCH_STATUS } from "../config/constants";
 
 export const initialState = {
 	fetchStatus: FETCH_STATUS.IDLE,
-	city: null,
+	query: null,
 	data: null
 };
 
@@ -15,10 +15,17 @@ export default (state = initialState, action) => {
 				fetchStatus: action.payload.status
 			};
 
+		case actionTypes.FORECAST_REQUEST_FORECAST:
+			return {
+				...state,
+				query: {
+					...action.payload
+				}
+			};
+
 		case actionTypes.FORECAST_RECEIVE_FORECAST:
 			return {
 				...state,
-				city: action.payload.city,
 				data: action.payload.data
 			};
 
@@ -26,7 +33,3 @@ export default (state = initialState, action) => {
 			return state;
 	}
 };
-
-export const getStatus = state => state.fetchStatus;
-export const getCity = state => state.city;
-export const getForecast = state => state.data;

@@ -1,5 +1,6 @@
 import * as actionTypes from "../config/actionTypes";
 import { FETCH_STATUS } from "../config/constants";
+import constructEndpoint from "../utils/constructEndpoint";
 
 export const setForecastFetchStatus = (status, error = null) => ({
 	type: actionTypes.FORECAST_SET_FETCH_STATUS,
@@ -9,24 +10,31 @@ export const setForecastFetchStatus = (status, error = null) => ({
 	}
 });
 
-export const receiveForecast = (city, data) => ({
-	type: actionTypes.FORECAST_RECEIVE_FORECAST,
+export const requestForecast = (city, countryCode) => ({
+	type: actionTypes.FORECAST_REQUEST_FORECAST,
 	payload: {
 		city,
+		countryCode
+	}
+});
+
+export const receiveForecast = data => ({
+	type: actionTypes.FORECAST_RECEIVE_FORECAST,
+	payload: {
 		data
 	}
 });
 
-export const requestForecast = (city, countryCode = "GB") => async dispatch => {
+export const getForecast = (city, countryCode = "GB") => async dispatch => {
 	dispatch(setForecastFetchStatus(FETCH_STATUS.PENDING));
+	dispatch(requestForecast(city, countryCode));
 
 	try {
-		const response = await fetch(
-			`https://api.openweathermap.org/data/2.5/forecast?q=${city},${countryCode}&mode=json`
-		);
+		const response = await fetch(constructEndpoint(city, countryCode));
 		const json = await response.json();
 
-		dispatch(receiveForecast(city, json));
+		dispatch(receiveForecast(json));
+
 		return dispatch(setForecastFetchStatus(FETCH_STATUS.SUCCESS));
 	} catch (error) {
 		return dispatch(setForecastFetchStatus(FETCH_STATUS.FAILURE, error));

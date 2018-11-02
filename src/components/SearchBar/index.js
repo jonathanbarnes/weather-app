@@ -1,16 +1,12 @@
-import Component from "./App";
+import Component from "./SearchBar";
 import { connect } from "react-redux";
 import { getForecast } from "../../actions/forecast";
-
-const mapStateToProps = state => ({
-	forecastFetchStatus: state.forecast.fetchStatus
-});
 
 const mapDispatchToProps = {
 	getForecast
 };
 
 export default connect(
-	mapStateToProps,
+	null,
 	mapDispatchToProps
 )(Component);
