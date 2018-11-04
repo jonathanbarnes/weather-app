@@ -1,0 +1,51 @@
+.search-bar {
+	width: 100%;
+}
+
+.search-bar__form {
+	font-size: 36px;
+}
+
+.search-bar__copy {
+	font-size: inherit;
+	font-weight: 200;
+}
+
+.search-bar__input {
+	font-size: inherit;
+	font-weight: 400;
+	display: inline-block;
+	width: 256px;
+	background-color: rgba(255, 255, 255, 0.1);
+	padding: 0.5rem;
+}
+
+.search-bar__submit {
+	display: inline-block;
+	margin-left: 1rem;
+}
+
+/* .search-bar {
+	width: 100%;
+	display: flex;
+}
+
+.search-bar__form {
+	font-size: 36px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: inline-block;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	margin: auto;
+	padding: 2rem;
+	border-radius: 2rem;
+}
+
+.search-bar__copy {
+	font-size: inherit;
+	font-weight: normal;
+	margin: 0;
+	display: inline-block;
+}
+*/

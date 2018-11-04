@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -5,4 +11,31 @@ body {
 		"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	color: rgba(255, 255, 255, 0.95);
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+	background-color: #005aa7;
+	/* background: linear-gradient(to bottom, #005aa7 0%, #6dd5fa 100%); */
+}
+
+input {
+	font-size: inherit;
+	appearance: none;
+	border: 0;
+	color: inherit;
+	outline: 0;
+	background-color: transparent;
+}
+
+input::placeholder {
+	color: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
 }

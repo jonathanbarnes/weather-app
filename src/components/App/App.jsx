@@ -1,18 +1,16 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import SearchBar from "../SearchBar/";
 import ResultsContainer from "../ResultsContainer";
 import "./App.css";
+import * as copy from "../../config/copy";
 
 const App = () => (
-	<div className="App">
+	<div className="weather-app">
 		<SearchBar />
 		<ResultsContainer />
 	</div>
 );
 
-App.propTypes = {
-	forecastFetchStatus: PropTypes.string.isRequired
-};
+App.propTypes = {};
 
 export default App;

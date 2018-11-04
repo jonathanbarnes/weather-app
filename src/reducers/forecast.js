@@ -1,5 +1,6 @@
 import * as actionTypes from "../config/actionTypes";
 import { FETCH_STATUS } from "../config/constants";
+import groupForecastDataByDay from "../utils/groupForecastDataByDay";
 
 export const initialState = {
 	fetchStatus: FETCH_STATUS.IDLE,
@@ -33,3 +34,6 @@ export default (state = initialState, action) => {
 			return state;
 	}
 };
+
+export const getForecastDataByDay = state =>
+	groupForecastDataByDay(state.data.list);

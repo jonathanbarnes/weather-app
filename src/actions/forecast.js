@@ -29,14 +29,28 @@ export const getForecast = (city, countryCode = "GB") => async dispatch => {
 	dispatch(setForecastFetchStatus(FETCH_STATUS.PENDING));
 	dispatch(requestForecast(city, countryCode));
 
+	// artificial delay for smoother UI
+	await new Promise(r => setTimeout(r, 1000));
+
 	try {
 		const response = await fetch(constructEndpoint(city, countryCode));
-		const json = await response.json();
 
-		dispatch(receiveForecast(json));
+		if (response.status === 200) {
+			const json = await response.json();
 
-		return dispatch(setForecastFetchStatus(FETCH_STATUS.SUCCESS));
+			dispatch(receiveForecast(json));
+			return dispatch(setForecastFetchStatus(FETCH_STATUS.SUCCESS));
+		} else {
+			return dispatch(
+				setForecastFetchStatus(
+					FETCH_STATUS.FAILURE,
+					response.statusText
+				)
+			);
+		}
 	} catch (error) {
-		return dispatch(setForecastFetchStatus(FETCH_STATUS.FAILURE, error));
+		return dispatch(
+			setForecastFetchStatus(FETCH_STATUS.FAILURE, error.message)
+		);
 	}
 };
