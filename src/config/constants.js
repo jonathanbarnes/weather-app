@@ -5,4 +5,4 @@ export const FETCH_STATUS = {
 	FAILURE: "FAILURE"
 };
 
-export const openWeatherMapApiKey = "5a7c708797eb6c9b9c4feeafde9d39a1";
+export const API_KEY = "5a7c708797eb6c9b9c4feeafde9d39a1";

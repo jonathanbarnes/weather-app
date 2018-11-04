@@ -29,7 +29,7 @@ class SearchBar extends Component {
 
 		if (query) {
 			this.input.current.blur();
-			getForecast(query);
+			getForecast(query, "GB", 1000);
 		}
 	}
 

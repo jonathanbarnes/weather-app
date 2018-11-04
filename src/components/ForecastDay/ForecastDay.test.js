@@ -1,4 +1,4 @@
-import Component from "./App";
+import Component from "./ForecastDay";
 
 let props;
 let mounted;
@@ -12,7 +12,7 @@ beforeEach(() => {
 	props = {};
 });
 
-describe("<App> component", () => {
+describe("<ForecastDay> component", () => {
 	test("renders in DOM", () => {
 		expect(wrapper().exists()).toBe(true);
 	});

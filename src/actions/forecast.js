@@ -25,12 +25,16 @@ export const receiveForecast = data => ({
 	}
 });
 
-export const getForecast = (city, countryCode = "GB") => async dispatch => {
+export const getForecast = (
+	city,
+	countryCode = "GB",
+	delay
+) => async dispatch => {
 	dispatch(setForecastFetchStatus(FETCH_STATUS.PENDING));
 	dispatch(requestForecast(city, countryCode));
 
 	// artificial delay for smoother UI
-	await new Promise(r => setTimeout(r, 1000));
+	delay && (await new Promise(r => setTimeout(r, delay)));
 
 	try {
 		const response = await fetch(constructEndpoint(city, countryCode));
