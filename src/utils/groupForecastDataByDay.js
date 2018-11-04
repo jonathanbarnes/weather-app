@@ -15,7 +15,7 @@ export const sortData = data =>
 			acc[date].entries.push(toBePushed);
 		} else {
 			acc[date] = {
-				dayOfWeek: entryMoment.format("dddd"),
+				dayOfWeek: entryMoment.format("dddd, Do"),
 				entries: [toBePushed]
 			};
 		}

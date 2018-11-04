@@ -21,29 +21,6 @@
 	animation: rotate 750ms infinite linear;
 }
 
-.transition--appear,
-.transition--enter {
-	opacity: 0;
-}
-
-.transition--appear-active {
-	opacity: 1;
-	transition: opacity 500ms ease;
-}
-
-.transition--enter-active {
-	opacity: 1;
-	transition: opacity 500ms ease 500ms;
-}
-
-.transition--exit {
-	opacity: 1;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-.transition--exit-active {
-	opacity: 0;
-	transition: opacity 500ms ease;
+.results-container__no-results-message {
+	margin: 2rem 0;
 }

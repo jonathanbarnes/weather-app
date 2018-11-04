@@ -34,7 +34,7 @@ class SearchBar extends Component {
 	}
 
 	componentDidMount() {
-		// this.input.current.focus();
+		this.input.current.focus();
 	}
 
 	render() {

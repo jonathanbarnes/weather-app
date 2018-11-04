@@ -4,8 +4,10 @@ import ForecastDay from "../ForecastDay";
 
 const Forecast = ({ forecast, city }) => (
 	<div className="forecast">
-		<h1 className="forecast__location">{city.name}</h1>
-		<ul>
+		{/* <h1 className="forecast__location">
+			{`${copy.resultsPrefix} "${city.name}"`}
+		</h1> */}
+		<ul className="forecast__days">
 			{Object.values(forecast).map((dayData, i) => (
 				<ForecastDay key={`forecast-day-${i}`} {...dayData} />
 			))}

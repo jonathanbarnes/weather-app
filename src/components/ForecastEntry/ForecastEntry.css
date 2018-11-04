@@ -1,0 +1,25 @@
+.forecast-entry {
+	display: flex;
+	flex-direction: column;
+	max-width: calc(100% / 8);
+	align-items: center;
+	font-size: 16px;
+}
+
+.forecast-entry__time {
+	font-size: 12px;
+}
+
+.forecast-entry__icon {
+	width: 100%;
+	padding: 5px;
+	fill: #fff;
+}
+
+.forecast-entry__icon--clear {
+	fill: yellow;
+}
+
+.forecast-entry__icon--rain {
+	fill: blue;
+}

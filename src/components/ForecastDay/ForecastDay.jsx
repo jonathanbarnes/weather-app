@@ -3,18 +3,22 @@ import PropTypes from "prop-types";
 import ForecastEntry from "../ForecastEntry";
 
 const ForecastDay = ({ dayOfWeek, minTemp, maxTemp, humidity, entries }) => (
-	<li>
-		<h1>{dayOfWeek}</h1>
-		<span>{Math.round(humidity)}</span>
-		<span>
-			{Math.round(minTemp)}
-			&deg;C
-		</span>
-		<span>
-			{Math.round(maxTemp)}
-			&deg;C
-		</span>
-		<ul>
+	<li className="forecast-day">
+		<h1 className="forecast-day__day-of-week">{dayOfWeek}</h1>
+
+		<div className="forecast-day__details">
+			<span className="forecast-day__temp">
+				{Math.round(minTemp)}
+				&deg;&nbsp;/&nbsp;
+				{Math.round(maxTemp)}
+				&deg;
+			</span>
+			<span className="forecast-day__humidity">
+				humidity: {Math.round(humidity)}
+			</span>
+		</div>
+
+		<ul className="forecast-day__entries">
 			{entries.map((entry, i) => (
 				<ForecastEntry key={`${entry.id}-${i}`} {...entry} />
 			))}

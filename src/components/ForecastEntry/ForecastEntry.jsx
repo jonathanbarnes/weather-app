@@ -4,15 +4,18 @@ import * as images from "../../images/";
 
 const ForecastEntry = ({ moment, temp, main, description }) => (
 	<li className="forecast-entry">
-		<span className="forecast-entry__time">{moment.format("hA")}</span>
+		<span className="forecast-entry__time">{moment.format("kk:mm")}</span>
 		<div className="forecast-entry__icon-wrapper">
-			{images[main]("forecast-entry__icon", description)}
+			{images[main](
+				`forecast-entry__icon forecast-entry__icon--${main.toLowerCase()}`,
+				description
+			)}
 		</div>
+
 		<span className="forecast-entry__temp">
-			{Math.round(+temp)}
-			&deg;C
+			{Math.round(temp)}
+			&deg;
 		</span>
-		<span className="forecast-entry__label">{main}</span>
 	</li>
 );
 

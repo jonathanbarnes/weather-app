@@ -14,7 +14,7 @@ body {
 	color: rgba(255, 255, 255, 0.95);
 	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
 	background-color: #005aa7;
-	/* background: linear-gradient(to bottom, #005aa7 0%, #6dd5fa 100%); */
+	line-height: 1.4;
 }
 
 input {
@@ -30,6 +30,11 @@ input::placeholder {
 	color: rgba(255, 255, 255, 0.4);
 }
 
+ul,
+ol {
+	list-style: none;
+}
+
 @keyframes rotate {
 	0% {
 		transform: rotate(0);
@@ -38,4 +43,31 @@ input::placeholder {
 	100% {
 		transform: rotate(360deg);
 	}
+}
+
+.transition--appear,
+.transition--enter {
+	opacity: 0;
+}
+
+.transition--appear-active {
+	opacity: 1;
+	transition: opacity 300ms ease;
+}
+
+.transition--enter-active {
+	opacity: 1;
+	transition: opacity 300ms ease 300ms;
+}
+
+.transition--exit {
+	opacity: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.transition--exit-active {
+	opacity: 0;
+	transition: opacity 300ms ease;
 }
