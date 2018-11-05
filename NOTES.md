@@ -49,6 +49,7 @@ And that's it! Thanks for checking it out.
 
 Built with CRA so to get started you can:
 
+`npm install` | `yarn` to install dependencies.
 `npm run start` | `yarn start` to serve the app locally.
 `npm run build` | `yarn build` to create a production-ready build.
 `npm run test` | `yarn test` to run unit tests.
