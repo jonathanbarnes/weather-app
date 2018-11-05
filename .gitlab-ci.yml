@@ -1,0 +1,24 @@
+image: node:latest
+
+stages:
+    - build
+    - test
+
+cache:
+    paths:
+        - node_modules/
+
+before_script:
+    - npm -v
+    - npm install -g surge
+    - npm install
+
+build-project:
+    stage: build
+    script:
+        - npm run build
+
+unit-test-project:
+    stage: test
+    script:
+        - npm run test -- --coverage

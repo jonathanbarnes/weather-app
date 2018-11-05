@@ -9,7 +9,13 @@ const wrapper = options => {
 
 beforeEach(() => {
 	mounted = undefined;
-	props = {};
+	props = {
+		dayOfWeek: "MOCK_DAY",
+		minTemp: 10,
+		maxTemp: 20,
+		humidity: 100,
+		entries: []
+	};
 });
 
 describe("<ForecastDay> component", () => {

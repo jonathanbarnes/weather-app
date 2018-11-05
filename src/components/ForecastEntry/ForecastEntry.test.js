@@ -1,5 +1,7 @@
 import Component from "./ForecastEntry";
 
+jest.mock("../../images");
+
 let props;
 let mounted;
 const wrapper = options => {
@@ -9,7 +11,14 @@ const wrapper = options => {
 
 beforeEach(() => {
 	mounted = undefined;
-	props = {};
+	props = {
+		moment: {
+			format: jest.fn()
+		},
+		temp: 10,
+		main: "MOCK_MAIN",
+		description: "MOCK_DESCRIPTION"
+	};
 });
 
 describe("<ForecastEntry> component", () => {

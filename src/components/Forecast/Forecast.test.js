@@ -1,4 +1,5 @@
 import Component from "./Forecast";
+import ForecastDay from "../ForecastDay";
 
 let props;
 let mounted;
@@ -9,7 +10,10 @@ const wrapper = options => {
 
 beforeEach(() => {
 	mounted = undefined;
-	props = {};
+	props = {
+		forecast: {},
+		city: {}
+	};
 });
 
 describe("<Forecast> component", () => {

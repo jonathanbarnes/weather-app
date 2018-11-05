@@ -7,7 +7,7 @@ class SearchBar extends Component {
 		super(props);
 
 		this.state = {
-			query: "London"
+			query: ""
 		};
 
 		this.handleInput = this.handleInput.bind(this);

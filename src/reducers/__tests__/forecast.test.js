@@ -1,6 +1,11 @@
 import * as actionCreators from "../../actions/forecast";
-import * as actionTypes from "../../config/actionTypes";
-import reducer, { initialState, getForecastDataByDay } from "../forecast";
+import reducer, {
+	initialState,
+	getForecastDataByDay as selector
+} from "../forecast";
+import utilFunc from "../../utils/groupForecastDataByDay";
+
+jest.mock("../../utils/groupForecastDataByDay");
 
 describe("forecast reducer", () => {
 	test("returns initialState", () => {
@@ -32,5 +37,19 @@ describe("forecast reducer", () => {
 		const action = actionCreators.receiveForecast(MOCK_DATA);
 
 		expect(reducer(undefined, action)).toHaveProperty("data", MOCK_DATA);
+	});
+});
+
+describe("selector : getForecastDataByDay", () => {
+	test("calls utility function", () => {
+		const MOCK_DATA = {
+			data: {
+				list: []
+			}
+		};
+
+		selector(MOCK_DATA);
+
+		expect(utilFunc).toHaveBeenCalledWith(MOCK_DATA.data.list);
 	});
 });

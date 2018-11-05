@@ -1,4 +1,5 @@
 import Component from "./ResultsContainer";
+import { FETCH_STATUS } from "../../config/constants";
 
 let props;
 let mounted;
@@ -9,7 +10,9 @@ const wrapper = options => {
 
 beforeEach(() => {
 	mounted = undefined;
-	props = {};
+	props = {
+		fetchStatus: FETCH_STATUS.IDLE
+	};
 });
 
 describe("<ResultsContainer> component", () => {
